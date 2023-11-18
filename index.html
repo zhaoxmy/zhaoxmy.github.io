@@ -153,6 +153,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/18/cfR909div3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="晨星-夕阳 （1778745920@qq.com）">
+      <meta itemprop="description" content="闲云潭影日悠悠，物换星移几度秋">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天文台">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/11/18/cfR909div3/" class="post-title-link" itemprop="url">codeForce Round 909 Div.3</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-11-18 09:30:48 / 修改时间：09:54:32" itemprop="dateCreated datePublished" datetime="2023-11-18T09:30:48+08:00">2023-11-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/answerstocontest/" itemprop="url" rel="index"><span itemprop="name">answerstocontest</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/answerstocontest/codeforce/" itemprop="url" rel="index"><span itemprop="name">codeforce</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这一场codeforce真的是打的我神志不清了掉大分</p>
+<h1 id="A-Game-with-Integers"><a href="#A-Game-with-Integers" class="headerlink" title="A. Game with Integers"></a>A. Game with Integers</h1><h3 id="原题链接-A-Game-with-Integers"><a href="#原题链接-A-Game-with-Integers" class="headerlink" title="原题链接:A. Game with Integers"></a>原题链接:<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1899/problem/A">A. Game with Integers</a></h3><h4 id="难度：入门"><a href="#难度：入门" class="headerlink" title="难度：入门"></a>难度：入门</h4><h4 id="算法：博弈论"><a href="#算法：博弈论" class="headerlink" title="算法：博弈论"></a>算法：博弈论</h4><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><p>人类智慧题，不难发现，不管vanya怎么修改这个数，vova都能下一次让他变回去。所以得到结论：“如果vanya能赢，则他只需要一步就能赢”。问题转化为一个数在一步之后能不能修改为3的倍数。很显然的，除非这个数本身是3的倍数，不然必然能够在一次操作后变成3的倍数。</p>
+<h2 id="AC-code"><a href="#AC-code" class="headerlink" title="AC code"></a>AC code</h2><pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main()&#123;
+    int t0;
+    cin&gt;&gt;t0;
+    int a;
+    for(int i=0;i&lt;t0;i++)&#123;
+        cin&gt;&gt;a;
+        if(a%3)
+            cout&lt;&lt;&quot;First&quot;&lt;&lt;endl;
+        else
+            cout&lt;&lt;&quot;Second&quot;&lt;&lt;endl;
+    &#125;
+&#125;
+</code></pre>
+<h1 id="B-250-Thousand-Tons-of-TNT"><a href="#B-250-Thousand-Tons-of-TNT" class="headerlink" title="B. 250 Thousand Tons of TNT"></a>B. 250 Thousand Tons of TNT</h1><h3 id="原题链接-B-250-Thousand-Tons-of-TNT"><a href="#原题链接-B-250-Thousand-Tons-of-TNT" class="headerlink" title="原题链接:B. 250 Thousand Tons of TNT"></a>原题链接:<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1899/problem/B">B. 250 Thousand Tons of TNT</a></h3><h4 id="难度：简单"><a href="#难度：简单" class="headerlink" title="难度：简单-"></a>难度：简单-</h4><h4 id="算法：数论"><a href="#算法：数论" class="headerlink" title="算法：数论"></a>算法：数论</h4><h2 id="题解：-1"><a href="#题解：-1" class="headerlink" title="题解："></a>题解：</h2><p>非常具有俄罗斯风味的题，看到这道题我的第一反应是排序后贪心，都快码出来了，结果突然反应过来题目的数据具有全序性，遂考虑dp，然后发现这题有不了一点最有子结构，后陷入迷茫。考虑到暴力的复杂度是O(nk)k是n的因数个数，突然反应过来这道题可能是诈骗题，遂交了一发暴力，然后AC。事后整理发现，n的因数个数最多是2sqrt(n)个。警惕电信诈骗。解法思路看注释吧。<br>#include <iostream><br>    #include <vector><br>    #include <algorithm><br>    using namespace std;<br>    int main(){<br>        long long t0,n,ans,temp&#x3D;0,maxt,mint;<br>        vector<long long> v;<br>        cin&gt;&gt;t0;<br>        for(int t&#x3D;0;t&lt;t0;t++){<br>            ans&#x3D;0;<br>            cin&gt;&gt;n;<br>            v.clear();<br>            v.resize(n);<br>            for(auto &amp;i:v)&#x2F;&#x2F;输入<br>                cin&gt;&gt;i;<br>            for(int i&#x3D;1;i&lt;n;i++){<br>                if(!(n%i)){&#x2F;&#x2F;如果能整除<br>                    maxt&#x3D;0;&#x2F;&#x2F;最大的一辆车<br>                    mint&#x3D;1e17;&#x2F;&#x2F;最小的一辆车<br>                    for(int j&#x3D;0;j&lt;n&#x2F;i;j++){<br>                        temp&#x3D;0;<br>                        for(int i1&#x3D;0;i1&lt;i;i1++)&#x2F;&#x2F;计算每一辆车<br>                            temp+&#x3D;v[j*i+i1];<br>                        maxt&#x3D;max(temp,maxt);&#x2F;&#x2F;保存最大最小<br>                        mint&#x3D;min(temp,mint);<br>                    }<br>                    ans&#x3D;max(ans,maxt-mint);&#x2F;&#x2F;更新答案<br>                }<br>            }<br>            cout&lt;&lt;ans&lt;&lt;endl;<br>        }<br>    }</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/16/unionFindSets/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -605,12 +694,12 @@ int main()&#123;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span>
       </div>
   </nav>

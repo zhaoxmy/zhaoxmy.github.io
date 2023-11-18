@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="这一场codeforce真的是打的我神志不清了掉大分 A. Game with Integers原题链接:A. Game with Integers难度：入门算法：博弈论题解：人类智慧题，不难发现，不管vanya怎么修改这个数，vova都能下一次让他变回去。所以得到结论：“如果vanya能赢，则他只需要一步就能赢”。问题转化为一个数在一步之后能不能修改为3的倍数。很显然的，除非这个数本身是3的倍数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="codeForce Round 909 Div.3">
+<meta property="og:url" content="http://example.com/2023/11/18/cfR909div3/index.html">
+<meta property="og:site_name" content="天文台">
+<meta property="og:description" content="这一场codeforce真的是打的我神志不清了掉大分 A. Game with Integers原题链接:A. Game with Integers难度：入门算法：博弈论题解：人类智慧题，不难发现，不管vanya怎么修改这个数，vova都能下一次让他变回去。所以得到结论：“如果vanya能赢，则他只需要一步就能赢”。问题转化为一个数在一步之后能不能修改为3的倍数。很显然的，除非这个数本身是3的倍数">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-18T01:30:48.000Z">
+<meta property="article:modified_time" content="2023-11-18T01:54:32.254Z">
+<meta property="article:author" content="晨星-夕阳 （1778745920@qq.com）">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/11/18/cfR909div3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>codeForce Round 909 Div.3 | 天文台</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">天文台</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">观测知识与智慧:晨星-夕阳的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/18/cfR909div3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="晨星-夕阳 （1778745920@qq.com）">
+      <meta itemprop="description" content="闲云潭影日悠悠，物换星移几度秋">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天文台">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          codeForce Round 909 Div.3
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-11-18 09:30:48 / 修改时间：09:54:32" itemprop="dateCreated datePublished" datetime="2023-11-18T09:30:48+08:00">2023-11-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/answerstocontest/" itemprop="url" rel="index"><span itemprop="name">answerstocontest</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/answerstocontest/codeforce/" itemprop="url" rel="index"><span itemprop="name">codeforce</span></a>
+                </span>
+            </span>
+
+          
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这一场codeforce真的是打的我神志不清了掉大分</p>
+<h1 id="A-Game-with-Integers"><a href="#A-Game-with-Integers" class="headerlink" title="A. Game with Integers"></a>A. Game with Integers</h1><h3 id="原题链接-A-Game-with-Integers"><a href="#原题链接-A-Game-with-Integers" class="headerlink" title="原题链接:A. Game with Integers"></a>原题链接:<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1899/problem/A">A. Game with Integers</a></h3><h4 id="难度：入门"><a href="#难度：入门" class="headerlink" title="难度：入门"></a>难度：入门</h4><h4 id="算法：博弈论"><a href="#算法：博弈论" class="headerlink" title="算法：博弈论"></a>算法：博弈论</h4><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><p>人类智慧题，不难发现，不管vanya怎么修改这个数，vova都能下一次让他变回去。所以得到结论：“如果vanya能赢，则他只需要一步就能赢”。问题转化为一个数在一步之后能不能修改为3的倍数。很显然的，除非这个数本身是3的倍数，不然必然能够在一次操作后变成3的倍数。</p>
+<h2 id="AC-code"><a href="#AC-code" class="headerlink" title="AC code"></a>AC code</h2><pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main()&#123;
+    int t0;
+    cin&gt;&gt;t0;
+    int a;
+    for(int i=0;i&lt;t0;i++)&#123;
+        cin&gt;&gt;a;
+        if(a%3)
+            cout&lt;&lt;&quot;First&quot;&lt;&lt;endl;
+        else
+            cout&lt;&lt;&quot;Second&quot;&lt;&lt;endl;
+    &#125;
+&#125;
+</code></pre>
+<h1 id="B-250-Thousand-Tons-of-TNT"><a href="#B-250-Thousand-Tons-of-TNT" class="headerlink" title="B. 250 Thousand Tons of TNT"></a>B. 250 Thousand Tons of TNT</h1><h3 id="原题链接-B-250-Thousand-Tons-of-TNT"><a href="#原题链接-B-250-Thousand-Tons-of-TNT" class="headerlink" title="原题链接:B. 250 Thousand Tons of TNT"></a>原题链接:<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1899/problem/B">B. 250 Thousand Tons of TNT</a></h3><h4 id="难度：简单"><a href="#难度：简单" class="headerlink" title="难度：简单-"></a>难度：简单-</h4><h4 id="算法：数论"><a href="#算法：数论" class="headerlink" title="算法：数论"></a>算法：数论</h4><h2 id="题解：-1"><a href="#题解：-1" class="headerlink" title="题解："></a>题解：</h2><p>非常具有俄罗斯风味的题，看到这道题我的第一反应是排序后贪心，都快码出来了，结果突然反应过来题目的数据具有全序性，遂考虑dp，然后发现这题有不了一点最有子结构，后陷入迷茫。考虑到暴力的复杂度是O(nk)k是n的因数个数，突然反应过来这道题可能是诈骗题，遂交了一发暴力，然后AC。事后整理发现，n的因数个数最多是2sqrt(n)个。警惕电信诈骗。解法思路看注释吧。<br>#include <iostream><br>    #include <vector><br>    #include <algorithm><br>    using namespace std;<br>    int main(){<br>        long long t0,n,ans,temp&#x3D;0,maxt,mint;<br>        vector<long long> v;<br>        cin&gt;&gt;t0;<br>        for(int t&#x3D;0;t&lt;t0;t++){<br>            ans&#x3D;0;<br>            cin&gt;&gt;n;<br>            v.clear();<br>            v.resize(n);<br>            for(auto &amp;i:v)&#x2F;&#x2F;输入<br>                cin&gt;&gt;i;<br>            for(int i&#x3D;1;i&lt;n;i++){<br>                if(!(n%i)){&#x2F;&#x2F;如果能整除<br>                    maxt&#x3D;0;&#x2F;&#x2F;最大的一辆车<br>                    mint&#x3D;1e17;&#x2F;&#x2F;最小的一辆车<br>                    for(int j&#x3D;0;j&lt;n&#x2F;i;j++){<br>                        temp&#x3D;0;<br>                        for(int i1&#x3D;0;i1&lt;i;i1++)&#x2F;&#x2F;计算每一辆车<br>                            temp+&#x3D;v[j*i+i1];<br>                        maxt&#x3D;max(temp,maxt);&#x2F;&#x2F;保存最大最小<br>                        mint&#x3D;min(temp,mint);<br>                    }<br>                    ans&#x3D;max(ans,maxt-mint);&#x2F;&#x2F;更新答案<br>                }<br>            }<br>            cout&lt;&lt;ans&lt;&lt;endl;<br>        }<br>    }</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/11/16/unionFindSets/" rel="prev" title="并查集/路径压缩并查集">
+      <i class="fa fa-chevron-left"></i> 并查集/路径压缩并查集
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#A-Game-with-Integers"><span class="nav-number">1.</span> <span class="nav-text">A. Game with Integers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E9%A2%98%E9%93%BE%E6%8E%A5-A-Game-with-Integers"><span class="nav-number">1.0.1.</span> <span class="nav-text">原题链接:A. Game with Integers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%BE%E5%BA%A6%EF%BC%9A%E5%85%A5%E9%97%A8"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">难度：入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%EF%BC%9A%E5%8D%9A%E5%BC%88%E8%AE%BA"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">算法：博弈论</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">题解：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AC-code"><span class="nav-number">1.2.</span> <span class="nav-text">AC code</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-250-Thousand-Tons-of-TNT"><span class="nav-number">2.</span> <span class="nav-text">B. 250 Thousand Tons of TNT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E9%A2%98%E9%93%BE%E6%8E%A5-B-250-Thousand-Tons-of-TNT"><span class="nav-number">2.0.1.</span> <span class="nav-text">原题链接:B. 250 Thousand Tons of TNT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%BE%E5%BA%A6%EF%BC%9A%E7%AE%80%E5%8D%95"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">难度：简单-</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%EF%BC%9A%E6%95%B0%E8%AE%BA"><span class="nav-number">2.0.1.2.</span> <span class="nav-text">算法：数论</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3%EF%BC%9A-1"><span class="nav-number">2.1.</span> <span class="nav-text">题解：</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">晨星-夕阳 （1778745920@qq.com）</p>
+  <div class="site-description" itemprop="description">闲云潭影日悠悠，物换星移几度秋</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">晨星-夕阳 （1778745920@qq.com）</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    //<span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
